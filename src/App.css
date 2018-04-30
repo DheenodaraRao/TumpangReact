@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.person{
+  border: 1px solid black;
+  display: inline-block;
+  margin: 20px;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 0 2px 2px blue
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#header{
+  text-align: center;
+  padding: 3px 7px 3px 7px;
+  border: 1px solid darkblue;
+  margin: 5px;
+  display: block;
+}
+
+#header h1{
+  color: darkblue;
+}
+
+#header p{
+  font-style: italic;
+  font-size: 10px;
+}
+#nav ul{
+  list-style: none;
+}
+
+li a {
+  display:inline-block;
+}
+
+#nav li:hover{
+  background-color: white;
+  color: darkblue;
+}
