@@ -7,6 +7,7 @@ export default class MyNavigation extends Component{
             <div id="nav">
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/login">Login</NavLink></li>
                     <li><NavLink to="/faq">FaQ</NavLink></li>
                 </ul>        
             </div>

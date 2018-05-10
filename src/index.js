@@ -13,12 +13,14 @@ import {
 
 import App from './App';
 import Faq from './components/Faq';
+import Login from './components/Login';
 
 ReactDOM.render(
     <Router>
         <div>
         <Header />
         <Route exact path="/" component={App}/>
+        <Route path="/login" component={Login} />
         <Route path="/faq" component={Faq} />
         </div>
     </Router>
