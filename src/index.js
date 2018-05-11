@@ -14,6 +14,7 @@ import {
 import App from './App';
 import Faq from './components/Faq';
 import Login from './components/Login';
+import Home from './components/Home';
 
 ReactDOM.render(
     <Router>
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Header />
         <Route exact path="/" component={App}/>
         <Route path="/login" component={Login} />
+        <Route path="/home" component={Home} />
         <Route path="/faq" component={Faq} />
         </div>
     </Router>

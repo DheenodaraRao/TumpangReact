@@ -63,3 +63,21 @@ input[type=submit]:hover{
   color: white;
   background-color: blue;
 }
+
+#user{
+  margin-top: 20px;
+  padding: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px solid black;
+  box-shadow: 5px 5px lightgray;
+  max-width: 300px;
+}
+
+#user img{
+  height: 200px;
+  width: 200px;
+  border-radius: 40%;
+}
