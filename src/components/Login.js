@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Home from './Home';
+import logindb from './nock-api';
 
 export default class Login extends Component{
 
@@ -24,8 +25,35 @@ export default class Login extends Component{
       handleSubmit(event) {
         //alert('Hi: ' + this.state.userName + " " + this.state.phoneNo);
         event.preventDefault();
-        window.state={name :this.state.userName, phoneNo:this.state.phoneNo};
-        this.setState({redirect: true});
+        
+        const url = window.ip + "login";
+        const request = require('request');
+
+        var options ={
+            uri: url,
+            method: "POST",
+            json:{
+                "phoneNumber": this.state.phoneNo
+            }
+        };
+        console.log(options);
+        request(options,(error, response, body) => {
+                //more processing with the body
+                console.log(body);
+
+                if(body.ok){
+                window.state={name :this.state.userName, phoneNo:this.state.phoneNo};
+                this.setState({redirect: true});
+                }
+                else{
+                    alert(body.message);
+                }
+        });
+
+
+        
+        //window.state={name :this.state.userName, phoneNo:this.state.phoneNo};
+        //this.setState({redirect: true});
         
       }
       

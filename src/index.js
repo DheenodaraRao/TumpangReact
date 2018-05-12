@@ -15,6 +15,7 @@ import App from './App';
 import Faq from './components/Faq';
 import Login from './components/Login';
 import Home from './components/Home';
+window.ip = "http://192.168.20.211:8080/";
 
 ReactDOM.render(
     <Router>

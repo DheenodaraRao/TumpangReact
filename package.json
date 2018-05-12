@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "nock": "^9.2.5",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^3.2.1",
     "react-router-dom": "^4.3.0-rc.3",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "request": "^2.85.0"
   },
   "scripts": {
     "start": "react-scripts start",

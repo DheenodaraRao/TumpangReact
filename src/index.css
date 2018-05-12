@@ -81,3 +81,57 @@ input[type=submit]:hover{
   width: 200px;
   border-radius: 40%;
 }
+
+#selection{
+  text-align: center;
+  border: 1px solid blue;
+  padding: 20px;
+  margin: 10px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+
+}
+
+#rider{
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px lightblue;
+  padding: 10px;
+  display: inline-block;
+  margin: 5px;
+}
+
+#buttons{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#accept{
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  margin: 10px;
+  border-radius: 15px;
+  border: 1px solid green;
+}
+
+
+#reject{
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  margin: 10px;
+  border-radius: 15px;
+  border: 1px solid red;
+}
+
+
