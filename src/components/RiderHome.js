@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import User from './User';
-import Rider from './Rider';
+import Driver from './Driver';
 
-export default class Home extends Component{
+export default class RiderHome extends Component{
     constructor(props){
         super(props);
         this.state ={
             name : window.state["name"],
             phoneNo:window.state.phoneNo,
             loading: true,
-            noRider: true
+            noDriver: true
         };
-        const url = window.ip + "getMyRiders";
+        const url = window.ip + "getMyDriver";
 
         var options ={
             uri: url,
@@ -24,11 +24,9 @@ export default class Home extends Component{
         const request = require('request');
         request(options,(error, response, body) => {
             this.setState({loading: false})
-            console.log(body.data);
-            if(body.data.length != 0){
-                data = body.data;
-                this.setState({noRider:false});
-            }
+            console.log(body.driver);
+                data = body;
+                this.setState({noDriver:false});
             
         });
     }
@@ -39,13 +37,13 @@ export default class Home extends Component{
                 <div><h3>Loading . . .</h3></div>
             );
         }
-        else if(this.state.noRider){
+        else if(this.state.noDriver){
             return(
                 <div>
                     <User userName={this.state.name} phoneNo={this.state.phoneNo}/>
 
                     <div id="selection">
-                    Sorry You Have No Riders . . .
+                    Sorry You Have No Driver . . .
                     </div>
                 </div>
             );
@@ -56,10 +54,10 @@ export default class Home extends Component{
             
                 <div id="selection">
                     {
-                     data.map(x => <Rider userName = {x.name} checkpoint = {x.fetchPoint} company = {x.company}/>)
+                     <Driver userName = {data.driver.name} checkpoint = {data.fetchPoint} company = {data.driver.company} />
                     }
                 <div id = "details">
-                <p>{"Do you want to fetch them at " + data[0].fetchPoint + " on " + details.time + "?"}</p>
+                <p>{"Do you want to be fetched  at " + data.fetchPoint + " on " + details.time + "?"}</p>
                 </div>
                 </div>
 
@@ -79,10 +77,39 @@ let data = null;
 const details = {time: "8:00am"}
 
 const handleAccept = () => {
-    alert("Accepted");
+    const url = window.ip + "driverSubmit";
+    var options ={
+        uri: url,
+        method: "POST",
+        json:{
+            "phoneNumber": this.state.phoneNo,
+            "type": "accept"
+        }
+    };
 
+    const request = require('request');
+        request(options,(error, response, body) => {
+            console.log(body);
+        });
+
+    alert("Accepted");
+    
 }
 
 const handleReject = () => {
+    const url = window.ip + "riderSubmit";
+    var options ={
+        uri: url,
+        method: "POST",
+        json:{
+            "phoneNumber": this.state.phoneNo,
+            "type": "reject"
+        }
+    };
+
+    const request = require('request');
+        request(options,(error, response, body) => {
+            console.log(body);
+        });
     alert("Rejected");
 }

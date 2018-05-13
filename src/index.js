@@ -15,6 +15,8 @@ import App from './App';
 import Faq from './components/Faq';
 import Login from './components/Login';
 import Home from './components/Home';
+import RiderHome from './components/RiderHome';
+
 window.ip = "http://192.168.20.211:8080/";
 
 ReactDOM.render(
@@ -25,6 +27,7 @@ ReactDOM.render(
         <Route path="/login" component={Login} />
         <Route path="/home" component={Home} />
         <Route path="/faq" component={Faq} />
+        <Route path="/riderHome" component={RiderHome} />
         </div>
     </Router>
     , document.getElementById('root'));

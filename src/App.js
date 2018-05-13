@@ -4,8 +4,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>At Home</h1>
+      <div id = "homesc">
+        <img id="logo" src="/images/Logo.png"/>
       </div>
     );
   }

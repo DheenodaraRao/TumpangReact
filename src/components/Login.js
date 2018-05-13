@@ -10,7 +10,8 @@ export default class Login extends Component{
         this.state = {
             userName:'',
             phoneNo:'',
-            redirect: false
+            redirect: false,
+            type: null
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -42,11 +43,13 @@ export default class Login extends Component{
                 console.log(body);
 
                 if(body.ok){
-                window.state={name :this.state.userName, phoneNo:this.state.phoneNo};
-                this.setState({redirect: true});
+                    window.state={name :body.username, phoneNo:this.state.phoneNo};
+                    console.log(body.type);
+                    this.setState({type: body.type});
+                    this.setState({redirect: true});
                 }
                 else{
-                    alert(body.message);
+                    alert(body.error);
                 }
         });
 
@@ -59,14 +62,14 @@ export default class Login extends Component{
       
     render(){
         if(this.state.redirect) {
-            return <Redirect to="/home" />;
+            console.log(this.state.type);
+            if(this.state.type === "driver")
+                return <Redirect to="/home" />;
+            return <Redirect to="/riderHome" />
         }
         return(
             <div id="loginForm">
             <form onSubmit= {this.handleSubmit}>
-                Name <br/>
-                <input type="text" name="userName" value={this.state.userName} onChange={this.handleChange}/> <br/> <br/>
-
                 Phone-No <br/>
                 <input type="text" name="phoneNo" value={this.state.phoneNo} onChange={this.handleChange}/> <br/> <br/>
 

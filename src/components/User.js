@@ -13,9 +13,13 @@ export default class User extends Component{
         return(
             <div id ="user">
                 <img src="/images/stevejobs.jpg"/>
-                <h2>Welcome {this.state.userName}</h2>
+                <h2>Welcome {captilatize(this.state.userName)}</h2>
                 <p>Your Phone Number : {this.state.phoneNo}</p>
             </div>
         );
     }
+}
+
+const captilatize = (str) =>{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
